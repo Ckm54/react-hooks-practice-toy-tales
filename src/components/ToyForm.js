@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 
 function ToyForm({ addToy }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    image: "",
-    likes: 0
-  })
+  const [formData, setFormData] = useState({})
 
   function handleDataInput(e) {
     setFormData({
@@ -16,7 +12,11 @@ function ToyForm({ addToy }) {
 
   function handleFormSubmit(e) {
     e.preventDefault()
-    addToy(formData)
+    if(formData.name && formData.image) {
+      addToy(formData)
+    } else {
+      alert("fill all form fields")
+    }
   }
   return (
     <div className="container">
