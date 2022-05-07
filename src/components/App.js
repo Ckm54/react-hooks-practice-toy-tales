@@ -28,6 +28,8 @@ function App() {
     })
     .then((res) => res.json())
     .then((updatedInfo) => setToys([...toys, updatedInfo]))
+
+    handleClick()
   }
 
   function deleteToy(toyToDelete) {
